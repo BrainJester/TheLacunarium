@@ -1,0 +1,213 @@
+@import url('https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&family=JetBrains+Mono:wght@400;500;600&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;0,900;1,700&family=Oswald:wght@400;500;600;700&family=Inter:wght@300;400;500;600;700&display=swap');
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --background: 0 0% 100%;
+    --foreground: 0 0% 0%;
+    --card: 0 0% 100%;
+    --card-foreground: 0 0% 0%;
+    --popover: 0 0% 100%;
+    --popover-foreground: 0 0% 0%;
+    --primary: 0 0% 0%;
+    --primary-foreground: 0 0% 100%;
+    --secondary: 0 0% 100%;
+    --secondary-foreground: 0 0% 0%;
+    --muted: 0 0% 100%;
+    --muted-foreground: 0 0% 0%;
+    --accent: 0 0% 100%;
+    --accent-foreground: 0 0% 0%;
+    --destructive: 0 0% 0%;
+    --destructive-foreground: 0 0% 100%;
+    --border: 0 0% 0%;
+    --input: 0 0% 0%;
+    --ring: 0 0% 0%;
+    --chart-1: 12 76% 61%;
+    --chart-2: 173 58% 39%;
+    --chart-3: 197 37% 24%;
+    --chart-4: 43 74% 66%;
+    --chart-5: 27 87% 67%;
+    --radius: 0.5rem;
+    --font-heading: ui-sans-serif, system-ui, sans-serif;
+    --font-body: ui-sans-serif, system-ui, sans-serif;
+    --font-display: ui-sans-serif, system-ui, sans-serif;
+    --font-mono: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
+    --font-grotesk: "Space Grotesk", ui-sans-serif, system-ui, sans-serif;
+    --font-jetbrains: "JetBrains Mono", ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
+    --font-casino: "Playfair Display", Georgia, serif;
+    --sidebar-background: 0 0% 98%;
+    --sidebar-foreground: 240 5.3% 26.1%;
+    --sidebar-primary: 240 5.9% 10%;
+    --sidebar-primary-foreground: 0 0% 98%;
+    --sidebar-accent: 240 4.8% 95.9%;
+    --sidebar-accent-foreground: 240 5.9% 10%;
+    --sidebar-border: 220 13% 91%;
+    --sidebar-ring: 217.2 91.2% 59.8%;
+  }
+
+  .dark {
+    --background: 0 0% 3.9%;
+    --foreground: 0 0% 98%;
+    --card: 0 0% 3.9%;
+    --card-foreground: 0 0% 98%;
+    --popover: 0 0% 3.9%;
+    --popover-foreground: 0 0% 98%;
+    --primary: 0 0% 98%;
+    --primary-foreground: 0 0% 9%;
+    --secondary: 0 0% 14.9%;
+    --secondary-foreground: 0 0% 98%;
+    --muted: 0 0% 14.9%;
+    --muted-foreground: 0 0% 63.9%;
+    --accent: 0 0% 14.9%;
+    --accent-foreground: 0 0% 98%;
+    --destructive: 0 62.8% 30.6%;
+    --destructive-foreground: 0 0% 98%;
+    --border: 0 0% 14.9%;
+    --input: 0 0% 14.9%;
+    --ring: 0 0% 83.1%;
+    --chart-1: 220 70% 50%;
+    --chart-2: 160 60% 45%;
+    --chart-3: 30 80% 55%;
+    --chart-4: 280 65% 60%;
+    --chart-5: 340 75% 55%;
+    --sidebar-background: 240 5.9% 10%;
+    --sidebar-foreground: 240 4.8% 95.9%;
+    --sidebar-primary: 224.3 76.3% 48%;
+    --sidebar-primary-foreground: 0 0% 100%;
+    --sidebar-accent: 240 3.7% 15.9%;
+    --sidebar-accent-foreground: 240 4.8% 95.9%;
+    --sidebar-border: 240 3.7% 15.9%;
+    --sidebar-ring: 217.2 91.2% 59.8%;
+  }
+}
+
+/* Red Queen game scope — overrides the site's monochrome tokens with the
+   game's own casino palette and fonts, scoped to the game wrapper so the
+   surrounding site chrome stays strict black-and-white. */
+.red-queen-scope {
+  --background: 150 55% 18%;
+  --foreground: 45 30% 92%;
+  --card: 150 45% 22%;
+  --card-foreground: 45 30% 92%;
+  --popover: 150 45% 20%;
+  --popover-foreground: 45 30% 92%;
+  --primary: 0 85% 50%;
+  --primary-foreground: 0 0% 100%;
+  --secondary: 150 35% 27%;
+  --secondary-foreground: 45 30% 92%;
+  --muted: 150 35% 23%;
+  --muted-foreground: 0 0% 85%;
+  --accent: 0 75% 52%;
+  --accent-foreground: 0 0% 100%;
+  --border: 0 0% 100%;
+  --input: 150 30% 28%;
+  --ring: 0 0% 100%;
+  --font-display: "Oswald", "Playfair Display", sans-serif;
+  --font-body: "Inter", ui-sans-serif, system-ui, sans-serif;
+  --font-casino: "Playfair Display", Georgia, serif;
+  color: hsl(45 30% 92%);
+}
+
+@layer base {
+  * {
+    @apply border-border outline-ring/50;
+  }
+
+  body {
+    @apply bg-background text-foreground font-body;
+  }
+}
+
+@layer utilities {
+  .casino-felt {
+    background-color: hsl(150, 52%, 20%);
+    background-image:
+      repeating-linear-gradient(
+        45deg,
+        rgba(0,0,0,0.05) 0px,
+        rgba(0,0,0,0.05) 1px,
+        transparent 1px,
+        transparent 8px
+      ),
+      repeating-linear-gradient(
+        -45deg,
+        rgba(0,0,0,0.05) 0px,
+        rgba(0,0,0,0.05) 1px,
+        transparent 1px,
+        transparent 8px
+      );
+  }
+  .casino-card {
+    box-shadow: 0 4px 12px rgba(0,0,0,0.4), 0 1px 3px rgba(0,0,0,0.3);
+    border: 1px solid rgba(255,255,255,0.12);
+  }
+  .chips-badge {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 2rem;
+    height: 2rem;
+    border-radius: 50%;
+    background: radial-gradient(circle at 35% 35%, #f6c843, #c9960a);
+    border: 2px solid #fff8dc;
+    box-shadow: 0 0 0 1px #9a7200, 0 2px 6px rgba(0,0,0,0.5);
+    font-weight: 800;
+    font-size: 0.65rem;
+    color: #3d1f00;
+    font-family: var(--font-display);
+    line-height: 1;
+  }
+  .chips-badge-sm {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    min-width: 1.5rem;
+    height: 1.5rem;
+    padding: 0 0.3rem;
+    border-radius: 50%;
+    background: radial-gradient(circle at 35% 35%, #f6c843, #c9960a);
+    border: 2px solid #fff8dc;
+    box-shadow: 0 0 0 1px #9a7200, 0 1px 4px rgba(0,0,0,0.5);
+    font-weight: 800;
+    font-size: 0.6rem;
+    color: #3d1f00;
+    font-family: var(--font-display);
+  }
+}
+
+/* Shared shell and responsive tower navigation. */
+.site-header { position:fixed; inset:0 0 auto; height:64px; z-index:40; display:flex; align-items:center; gap:16px; padding:8px 20px; background:white; border-bottom:2px solid black; }
+.site-wordmark { font:bold 32px Georgia,serif; min-width:44px; height:44px; display:grid; place-items:center; flex-shrink:0; }
+.site-main { padding-top:64px; }
+.site-ticker { flex:1; min-width:0; overflow:hidden; white-space:nowrap; font-size:12px; }
+.ticker-track { display:flex; width:max-content; animation:ticker-travel var(--ticker-duration,40s) linear infinite; }
+.ticker-copy { display:flex; flex-shrink:0; }
+.site-ticker a { display:inline-block; padding:8px 18px; }
+.site-ticker:hover .ticker-track,.site-ticker:focus-within .ticker-track { animation-play-state:paused; }
+@keyframes ticker-travel { to { transform:translateX(-50%); } }
+.tower { position:relative; height:calc(100dvh - 64px); min-height:440px; overflow:hidden; background:white; }
+.tower-scene { position:absolute; inset:0; touch-action:none; }
+.tower-scene canvas { display:block; }
+.tower-compass { position:absolute; bottom:max(18px,env(safe-area-inset-bottom)); left:50%; transform:translateX(-50%); display:grid; grid-template-columns:44px 44px 44px; grid-template-rows:44px 44px 44px; gap:3px; }
+.tower-compass button { display:grid; place-items:center; width:44px; height:44px; border:1px solid black; border-radius:8px; background:white; }
+.tower-compass button:hover { background:#f0ede7; }
+.tower-compass button:disabled { opacity:.3; cursor:default; }
+.compass-north { grid-area:1/2; } .compass-west { grid-area:2/1; } .compass-east { grid-area:2/3; } .compass-south { grid-area:3/2; }
+.compass-center { grid-area:2/2; display:grid; place-items:center; font-size:16px; font-weight:700; font-variant-numeric:tabular-nums; }
+.tower-notice { position:absolute; bottom:166px; left:50%; transform:translateX(-50%); padding:8px 16px; width:max-content; max-width:90%; background:white; text-align:center; font-size:12px; }
+.tower-error { position:absolute; top:25%; left:50%; transform:translateX(-50%); width:min(90%,440px); padding:20px; border:2px solid; background:white; text-align:center; }
+.tower-error button { margin-top:12px; padding:10px; border:1px solid; }
+.tower-fallback { position:absolute; top:50%; left:5%; right:5%; display:flex; flex-wrap:wrap; justify-content:center; gap:16px; padding:16px; background:white; }
+.tower-fallback a { text-decoration:underline; padding:8px; }
+:focus-visible { outline:3px solid #386ad1; outline-offset:4px; }
+@media(max-width:600px) { .site-header { gap:8px; padding:8px; } .site-ticker a { padding:8px 12px; } }
+@media(max-height:540px) { .tower { min-height:300px; } .tower-compass { bottom:8px; } }
+@media(prefers-reduced-motion:reduce) { *,*::before,*::after { animation-duration:.01ms!important; transition-duration:.01ms!important; scroll-behavior:auto!important; } .ticker-track { animation:none; } .site-ticker { overflow:auto; } .ticker-copy[aria-hidden=true] { display:none; } }
+
+/* Touch/narrow layouts use swipes, with only the current floor number below. */
+.tower-compact .tower-compass { display:flex; bottom:max(22px,env(safe-area-inset-bottom)); }
+.tower-compact .tower-compass button { display:none; }
+.tower-compact .compass-center { width:44px; height:44px; }

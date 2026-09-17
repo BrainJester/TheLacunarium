@@ -1,0 +1,19 @@
+{
+  "compilerOptions": {
+    "target": "ES2022",
+    "module": "ESNext",
+    "moduleResolution": "bundler",
+    "allowImportingTsExtensions": true,
+    "noEmit": true,
+    "skipLibCheck": true,
+    "baseUrl": ".",
+    "paths": {
+      "npm:@base44/sdk@0.8.48": [
+        "node_modules/@base44/sdk/dist/index.d.ts"
+      ]
+    }
+  },
+  "include": [
+    "base44/**/*.ts"
+  ]
+}

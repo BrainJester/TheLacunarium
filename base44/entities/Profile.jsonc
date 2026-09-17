@@ -1,0 +1,49 @@
+{
+  "name": "Profile",
+  "type": "object",
+  "properties": {
+    "user_id": {
+      "type": "string",
+      "description": "Owning user id"
+    },
+    "profile_name": {
+      "type": "string",
+      "description": "Public display name"
+    },
+    "profile_name_lower": {
+      "type": "string",
+      "description": "Lowercased name used for uniqueness checks"
+    },
+    "site_role": {
+      "type": "string",
+      "enum": [
+        "user",
+        "tester",
+        "admin"
+      ],
+      "default": "user",
+      "description": "Site permission role"
+    },
+    "mass_record": {
+      "type": "number",
+      "default": 0,
+      "description": "Highest Piece & Quiet mass achieved by this player"
+    },
+    "red_queen_record": {
+      "type": "number",
+      "default": 0,
+      "description": "Best solo-human Red Queen heart total; casual player-reported record"
+    }
+  },
+  "required": [
+    "user_id",
+    "profile_name",
+    "profile_name_lower"
+  ],
+  "rls": {
+    "read": false,
+    "create": false,
+    "update": false,
+    "delete": false
+  }
+}

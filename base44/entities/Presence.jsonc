@@ -1,0 +1,30 @@
+{
+  "name": "Presence",
+  "type": "object",
+  "properties": {
+    "user_id": {
+      "type": "string"
+    },
+    "session_id": {
+      "type": "string"
+    },
+    "page": {
+      "type": "string"
+    },
+    "last_active": {
+      "type": "number"
+    }
+  },
+  "required": [
+    "user_id",
+    "session_id",
+    "page",
+    "last_active"
+  ],
+  "rls": {
+    "read": false,
+    "create": false,
+    "update": false,
+    "delete": false
+  }
+}

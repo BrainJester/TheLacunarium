@@ -1,0 +1,25 @@
+{
+  "properties": {
+    "role": {
+      "type": "string",
+      "description": "The role of the user in the app",
+      "enum": [
+        "admin",
+        "user"
+      ]
+    },
+    "current_page": {
+      "type": "string",
+      "description": "Last route the user was on (presence tracking)"
+    },
+    "last_active": {
+      "type": "number",
+      "description": "Unix ms timestamp of last activity (presence tracking)"
+    }
+  },
+  "required": [
+    "role"
+  ],
+  "name": "User",
+  "type": "object"
+}
